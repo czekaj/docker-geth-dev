@@ -1,4 +1,10 @@
 {
+    "config": {
+        "chainId": 15,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
   "nonce": "0x00006d6f7264656e",
   "difficulty": "0x20000",
   "mixhash": "0x00000000000000000000000000000000000000647572616c65787365646c6578",
@@ -8,14 +14,14 @@
   "extraData": "0x",
   "gasLimit": "0x2FEFD8",
   "alloc": {
-    "de1e758511a7c67e7db93d1c23c1060a21db4615": {
+    "0x0949b4a649d2bb2da8d5af755190e1e91cfaf8ec": {
       "balance": "1000"
     },
-    "27dc8de9e9a1cb673543bd5fce89e83af09e228f": {
-      "balance": "1100"
+    "0x24bc3b86f28019a521c652648177e27b4f3e0d7a": {
+      "balance": "2000"
     },
-    "d64a66c28a6ae5150af5e7c34696502793b91ae7": {
-      "balance": "900"
+    "0x94d513eb350b90f79ae5e6b33e3e0ea0d4835031": {
+      "balance": "3000"
     }
   }
 }
