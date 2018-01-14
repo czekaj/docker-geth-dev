@@ -5,50 +5,50 @@ Docker-geth-dev
 This runs a container with private Ethereum chain with some precreated accounts
 and balances. This is inspired by the `StackOverflow thread <http://ethereum.stackexchange.com/questions/1516/how-can-i-completely-automate-a-docker-image-and-dockerfile-for-a-geth-test-netw>`_ and fixing problems encountered on the way.
 
+This fork updates the https://github.com/pragmaticcoders/docker-geth-dev version to make it run again with geth 1.8.0 and the alpine linux image.
+
 1. Build the container: ::
 
-     make build
+     ethereum/client-go:privnet .
 
 
 2. Run as standalone command for RPC use: ::
 
-     make rpc
+     docker run -it --name geth -d ethereum/client-go:privnet
 
-   Please note that the non-standard port (8110) is used for RPC server, so be sure to
-   configure your client accordingly.
 
 
 3. Run as part of docker-compose: ::
 
      geth:
-       image: ethereum/client-go:test
+       image: ethereum/client-go:privnet
        ports:
-         - "8110:8110"
+         - "8545:8545"
 
 
 Precreated accounts
 ===================
 
-- ``de1e758511a7c67e7db93d1c23c1060a21db4615`` (initial balance: 1000 wei).
+- ``0x94d513eb350b90f79ae5e6b33e3e0ea0d4835031`` (initial balance: 3000 wei).
   This account is used as a coinbase for mining, so it will have plenty of ether
   fast.
 
-- ``27dc8de9e9a1cb673543bd5fce89e83af09e228f`` (initial balance: 1100 wei)
+- ``0x24bc3b86f28019a521c652648177e27b4f3e0d7a`` (initial balance: 2000 wei)
 
-- ``d64a66c28a6ae5150af5e7c34696502793b91ae7`` (initial balance: 900 wei)
+- ``0x0949b4a649d2bb2da8d5af755190e1e91cfaf8ec`` (initial balance: 1000 wei)
 
-All the accounts have the same passphrase: ``password``
+All the accounts have the same passphrase: ``ComplexPassword123#``
 
 
 Example: check balance with RPC call
 ====================================
 
-You can run ``make test`` which is actually::
+You can run ::
 
-  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["27dc8de9e9a1cb673543bd5fce89e83af09e228f", "latest"],"id":1}' localhost:8110
+  curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x24bc3b86f28019a521c652648177e27b4f3e0d7a", "latest"],"id":1}' -H "Content-Type: application/json" localhost:8545
 
 The response should be: ::
 
-  {"jsonrpc":"2.0","id":1,"result":"0x44c"}
+  {"jsonrpc":"2.0","id":1,"result":"0x7d0"}
 
-(``0x44c`` is hex for ``1100``)
+(``0x7d0`` is hex for ``2000``)
