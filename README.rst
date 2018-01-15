@@ -7,9 +7,11 @@ and balances. This is inspired by the `StackOverflow thread <http://ethereum.sta
 
 This fork updates the https://github.com/pragmaticcoders/docker-geth-dev version to make it run again with geth 1.8.0 and the alpine linux image.
 
+0. Clone the repository
+
 1. Build the container: ::
 
-     ethereum/client-go:privnet .
+     docker build -t ethereum/client-go:privnet .
 
 
 2. Run as standalone command for RPC use: ::
