@@ -58,7 +58,16 @@ The response should be: ::
 Running Mist on our privnet
 ===========================
 
-Modify your Mist desktop shortcut (Windows) ::
+Windows
+-------
+
+Modify your Mist desktop shortcut ::
 
   "C:\Program Files\Mist\Mist.exe" --node-datadir="%HOMEPATH%\AppData\Roaming\Ethereum\privatenet" --rpc http://127.0.0.1:8545  --node-networkid 1234 --swarmurl="http://swarm-gateways.net"
 
+Mac
+---
+
+Run Mist from terminal ::
+
+   /Applications/Mist.app/Contents/MacOS/Mist --rpc http://127.0.0.1:8545  --node-networkid 1234 --swarmurl="http://swarm-gateways.net" > /dev/null 2>&1 &
