@@ -52,3 +52,11 @@ The response should be: ::
   {"jsonrpc":"2.0","id":1,"result":"0x7d0"}
 
 (``0x7d0`` is hex for ``2000``)
+
+Running Mist on our privnet
+===========================
+
+Modify your Mist desktop shortcut (Windows) ::
+
+  "C:\Program Files\Mist\Mist.exe" --node-datadir="%HOMEPATH%\AppData\Roaming\Ethereum\privatenet" --rpc http://127.0.0.1:8545  --node-networkid 1234 --swarmurl="http://swarm-gateways.net"
+
