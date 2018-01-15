@@ -14,7 +14,7 @@ This fork updates the https://github.com/pragmaticcoders/docker-geth-dev version
 
 2. Run as standalone command for RPC use: ::
 
-     docker run -it --name geth -d ethereum/client-go:privnet
+     docker run -it --name geth -d -p 8545:8545 ethereum/client-go:privnet
 
 
 
